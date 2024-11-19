@@ -23,6 +23,7 @@ const friendSchema = new Schema<IFriend>(
                 required: true
             },
         },
+        { timestamps: true }
     );
 
 

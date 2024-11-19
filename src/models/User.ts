@@ -1,11 +1,30 @@
-import { Schema, model, type Document } from 'mongoose';
+import { Schema, Types, model, type Document } from 'mongoose';
+
+interface IFriend extends Document {
+    friendId: Schema.Types.ObjectId,
+    username: string;
+}
 
 interface IUser extends Document {
     username: string;
     email: string;
-    thoughts: Schema.Types.ObjectId[]
-    friends: Schema.Types.ObjectId[]
+    thoughts?: Schema.Types.ObjectId[]
+    friends?: Schema.Types.ObjectId[]
 }
+
+const friendSchema = new Schema<IFriend>(
+        {
+            friendId: {
+                type: Schema.Types.ObjectId,
+                default: () => new Types.ObjectId(),
+            },
+            username: {
+                type: String,
+                required: true
+            },
+        },
+    );
+
 
 const userSchema = new Schema<IUser>(
     {
@@ -27,12 +46,7 @@ const userSchema = new Schema<IUser>(
                 ref: 'thought'
             },
         ],
-        friends: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'user'
-            }
-        ]
+        friends: [friendSchema]
     },
     {
         toJSON: {

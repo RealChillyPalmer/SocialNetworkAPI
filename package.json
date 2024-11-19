@@ -11,5 +11,16 @@
     "render-start": "npm run seed && npm run start"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mongoose": "^8.8.2",
+    "validator": "^13.12.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/mongoose": "^5.11.97",
+    "@types/validator": "^13.12.2",
+    "typescript": "^5.6.3"    
+  }
 }

@@ -11,4 +11,4 @@ const db = async (): Promise<typeof mongoose.connection> =>{
     }
 }
 
-export default db;
+export default db

@@ -90,14 +90,14 @@ export const addFriend = async (req: Request, res: Response ) => {
         );
 
         if (!user) {
-            return res
+            res
                 .status(404)
                 .json({ message: 'No user found with that ID' })
         }
 
-        return res.json(user);
+        res.json(user);
     } catch (err) {
-        return res.status(500).json(err)
+        res.status(500).json(err)
     }
 }
 
@@ -110,13 +110,13 @@ export const unFriend = async (req: Request, res: Response) => {
         );
 
         if (!user) {
-            return res
+            res
                 .status(404)
                 .json({ message: 'No user found with that ID' });
         }
 
-        return res.json(user)
+        res.json(user)
     } catch (err) {
-        return res.status(500).json(err);
+        res.status(500).json(err);
     }
 }

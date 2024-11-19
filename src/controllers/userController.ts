@@ -33,12 +33,8 @@ export const getUserById = async (req: Request, res: Response) => {
 
 export const createUser = async (req: Request, res: Response) => {
     try {
-        const { username, email } = req.body;
-        const newUser = await User.create({
-            username,
-            email
-        });
-        res.status(201).json(newUser);
+        const user = await User.create(req.body);
+        res.status(201).json(user);
     } catch (error: any) {
         res.status(400).json({
             message: error.message
